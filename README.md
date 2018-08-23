@@ -21,7 +21,7 @@ Documentação da plataforma de pagamento Apus.
 | Ethereum         | Blockchain::ETH        | Sim        |
 | Litecoin         | Blockchain::LTC        | Sim        |
 
-## Períodos suportados
+## Periodos suportados
 
 | Period           | Value              |
 |------------------|--------------------|
@@ -178,5 +178,11 @@ Recarga de cartão com saldo de criptomoedas do comerciante.
 
 ```js
 {
+    "code": 002,
+    "message": "Recarga efetuada com sucesso!",
+    "txid": "d5a82f2e8469b1d30a98cbca29c40cb732c46c6b19ab729e1785806237417153",
+    "data": {
+        ?: ?
+    }
 }
 ```
