@@ -21,7 +21,7 @@ Documentação da plataforma de pagamento Apus.
 | Ethereum         | Blockchain::ETH        | Sim        |
 | Litecoin         | Blockchain::LTC        | Sim        |
 
-## Periodos suportados
+## Períodos suportados
 
 | Period           | Value              |
 |------------------|--------------------|
