@@ -113,7 +113,7 @@ Payments using card number and password on a recurring basis.
 
 ### Request
 
-> POST https://api.apus.exchange/v1/checkout/
+> POST https://api.apus.exchange/v1/checkout/recurrent
 
 ```js
 {
