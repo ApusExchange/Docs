@@ -14,12 +14,12 @@ Documentação da plataforma de pagamento Apus.
 
 ## Blockchains suportadas
 
-| Blockchain       | Value                  | Recorrente |
-|------------------|------------------------|------------|
-| Bitcoin          | Blockchain::BTC        | Sim        |
-| Decred           | Blockchain::DCR        | Sim        |
-| Ethereum         | Blockchain::ETH        | Sim        |
-| Litecoin         | Blockchain::LTC        | Sim        |
+| Blockchain  | Value                  | Recorrente |
+|-------------|------------------------|------------|
+| BTC         | Blockchain::BTC        | Sim        |
+| DCR         | Blockchain::DCR        | Sim        |
+| ETH         | Blockchain::ETH        | Sim        |
+| LTC         | Blockchain::LTC        | Sim        |
 
 ## Periodos suportados
 
@@ -55,12 +55,21 @@ Pagamentos utilizando número do cartão e senha
 
 ```js
 {
-    "code": 001,
-    "message": "Pagamento efetuado com sucesso!",
-    "txid": "d5a82f2e8469b1d30a98cbca29c40cb732c46c6b19ab729e1785806237417153",
-    "data": {
-        ?: ?
-    }
+    "code": "016",
+    "message": "Approved transaction",
+    "txId": "74fee55a9155e2e49f34a6d0c62d3b72fd1b0f1824b68185ccf3bc8b74185158",
+    "timestamp": 1536427020652,
+    "date": "2018-09-08T14:17:00-03:00",
+    "coin": {
+        "name": "LTC",
+        "amount": "0.04413179",
+        "fee": 0.00054
+    },
+    "currency": {
+        "name": "BRL",
+        "amount": "10.00"
+    },
+    "buyer": "Name of buyer"
 }
 ```
 
