@@ -70,7 +70,7 @@ Payments using card number and password
 
 ### Request
 
-> POST https://api.apus.exchange/v1/checkout/
+> POST https://sandbox.apus.exchange/v1/checkout/
 
 ```js
 {
@@ -113,7 +113,7 @@ Payments using card number and password on a recurring basis.
 
 ### Request
 
-> POST https://api.apus.exchange/v1/checkout/recurrent
+> POST https://sandbox.apus.exchange/v1/checkout/recurrent
 
 ```js
 {
@@ -149,7 +149,7 @@ Cancel payment.
 
 ### Request
 
-> DELETE https://api.apus.exchange/v1/checkout/
+> DELETE https://sandbox.apus.exchange/v1/checkout/
 
 ```js
 {
@@ -180,7 +180,7 @@ Consult payments.
 
 ### Request
 
-> GET https://api.apus.exchange/v1/checkout/
+> GET https://sandbox.apus.exchange/v1/checkout/
 
 ```js
 {
@@ -202,7 +202,7 @@ Refill card with merchant's cryptocurrency balance.
 
 ### Request
 
-> POST https://api.apus.exchange/v1/checkin/
+> POST https://sandbox.apus.exchange/v1/checkin/
 
 ```js
 {
