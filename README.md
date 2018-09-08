@@ -33,23 +33,34 @@ Documentation of the payment platform Apus.
 | 015   | Failed to send email                | Internal failure to send payment receipt email               |
 | 016   | Approved transaction                | Everything went well and the transaction was approved        |
 
+## Currencies supported
+
+| Currency  | Value                | Description          |
+|-----------|----------------------|----------------------|
+| BLR       | Currency::BLR        | Brazilian real       |
+| CAD       | Currency::CAD        | Canadian dollar      |
+| CNY       | Currency::CNY        | China yuan renminbi  |
+| EUR       | Currency::EUR        | Euro                 |
+| JPY       | Currency::JPY        | Japanese yen         |
+| USD       | Currency::USD        | United States dollar |
+
 ## Blockchains supported
 
-| Blockchain  | Value                  | Recorrente |
+| Blockchain  | Value                  | Recurrent? |
 |-------------|------------------------|------------|
-| BTC         | Blockchain::BTC        | Sim        |
-| DCR         | Blockchain::DCR        | Sim        |
-| ETH         | Blockchain::ETH        | Sim        |
-| LTC         | Blockchain::LTC        | Sim        |
+| BTC         | Blockchain::BTC        | Yes        |
+| DCR         | Blockchain::DCR        | Yes        |
+| ETH         | Blockchain::ETH        | Yes        |
+| LTC         | Blockchain::LTC        | Yes        |
 
 ## Periods supported
 
-| Period           | Value              |
-|------------------|--------------------|
-| Day              | Period::DAY        |
-| Week             | Period::WEEK       |
-| Month            | Period::MONTH      |
-| Year             | Period::YEAR       |
+| Period           | Value              | Description           |
+|------------------|--------------------|-----------------------|
+| Day              | Period::DAY        | Daily transactions    |
+| Week             | Period::WEEK       | Weekly transactions   |
+| Month            | Period::MONTH      | Monthly transactions  |
+| Year             | Period::YEAR       | Annual transactions   |
 
 <hr>
 
