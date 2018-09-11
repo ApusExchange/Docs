@@ -131,7 +131,7 @@ Payments using card number and password on a recurring basis.
 
 ### Response
 
-#### Schedule and pay ("execute": "true")
+> Schedule and pay ["execute": "true"]
 
 ```js
 {
@@ -159,7 +159,7 @@ Payments using card number and password on a recurring basis.
 }
 ```
 
-#### Only schedule ("execute": "false")
+> Only schedule ["execute": "false"]
 
 ```js
 {
