@@ -6,9 +6,9 @@ Documentation of the payment platform Apus.
 
 * [x] Payments by card.
 * [x] Recurring payments.
-* [x] Cancel payment.
+* [ ] Cancel payment.
 * [ ] Consult payments.
-* [x] Cryptocurrency recharge.
+* [ ] Cryptocurrency recharge.
 
 <hr>
 
@@ -130,14 +130,55 @@ Payments using card number and password on a recurring basis.
  
 ### Response
 
+#### Scheduling and Payment
+
 ```js
 {
-    "code": 001,
-    "message": "Pagamento efetuado com sucesso!",
-    "txid": "d5a82f2e8469b1d30a98cbca29c40cb732c46c6b19ab729e1785806237417153",
-    "data": {
-        ?: ?
-    }
+    "code": "017",
+    "message": "Successful payment and scheduling",
+    "id": "bbee6d15-ecc9-489e-9611-274ae7acefd3"
+    "txId": "2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f",
+    "timestamp": 1536631861766,
+    "date": "2018-09-10T23:11:01-03:00",
+    "coin": {
+        "name": "LTC",
+        "amount": "0.04494037",
+        "fee": 0.00054
+    },
+    "currency": {
+        "name": "BRL",
+        "amount": "10.00"
+    },
+    "schedule": {
+        "period": "Month",
+        "frequency": "12",
+        "execute": "true"
+    },
+    "buyer": "Name of buyer",
+}```
+
+#### Only scheduling
+
+```js
+{
+    "code": "018",
+    "message": "Successful scheduling",
+    "id": "1a19a4ee-7578-49f7-a379-1b5103e6ace6"
+    "timestamp": 1536631964775,
+    "date": "2018-09-10T23:12:44-03:00",
+    "coin": {
+        "name": "LTC"
+    },
+    "currency": {
+        "name": "BRL",
+        "amount": "10.00"
+    },
+    "schedule": {
+        "period": "Month",
+        "frequency": "12",
+        "execute": "false"
+    },
+    "buyer": "Name of buyer",
 }
 ```
 
