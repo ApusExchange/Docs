@@ -35,7 +35,7 @@ Documentation of the payment platform Apus.
 
 ## Currencies supported
 
-| Currency  | Value                | Description          |
+| Value     | Currency             | Description          |
 |-----------|----------------------|----------------------|
 | BLR       | Currency::BLR        | Brazilian real       |
 | CAD       | Currency::CAD        | Canadian dollar      |
@@ -46,7 +46,7 @@ Documentation of the payment platform Apus.
 
 ## Blockchains supported
 
-| Blockchain  | Value                  | Recurrent? |
+| Value       | Blockchain             | Recurrent? |
 |-------------|------------------------|------------|
 | BTC         | Blockchain::BTC        | Yes        |
 | DCR         | Blockchain::DCR        | Yes        |
@@ -55,12 +55,12 @@ Documentation of the payment platform Apus.
 
 ## Periods supported
 
-| Period           | Value              | Description           |
-|------------------|--------------------|-----------------------|
-| Day              | Period::DAY        | Daily transactions    |
-| Week             | Period::WEEK       | Weekly transactions   |
-| Month            | Period::MONTH      | Monthly transactions  |
-| Year             | Period::YEAR       | Annual transactions   |
+| Value   | Period             | Description           |
+|---------|--------------------|-----------------------|
+| D       | Period::DAY        | Daily transactions    |
+| W       | Period::WEEK       | Weekly transactions   |
+| M       | Period::MONTH      | Monthly transactions  |
+| Y       | Period::YEAR       | Annual transactions   |
 
 <hr>
 
