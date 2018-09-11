@@ -76,7 +76,7 @@ Payments using card number and password
 {
   "pan": "0000111122223333",
   "password": "*******",
-  "blockchain": Blockchain::BTC,
+  "blockchain": Blockchain::LTC,
   "amount": 10.00,
   "currency": "BRL",
   "apikey": "6ZS6aF3FBnu5wEQZKsN3jbGCxUoszwDaUv89IU"
@@ -119,18 +119,19 @@ Payments using card number and password on a recurring basis.
 {
   "pan": "0000111122223333",
   "password": "*******",
-  "blockchain": Blockchain::BTC,
+  "blockchain": Blockchain::LTC,
   "amount": 10.00,
   "currency": "BRL",
   "period": Period::MONTH,
   "frequency": 12,
+  "execute": false|true,
   "apikey": "6ZS6aF3FBnu5wEQZKsN3jbGCxUoszwDaUv89IU"
 }
 ```
- 
+
 ### Response
 
-#### Scheduling and Payment
+#### Schedule and pay ("execute": "true")
 
 ```js
 {
@@ -150,14 +151,15 @@ Payments using card number and password on a recurring basis.
         "amount": "10.00"
     },
     "schedule": {
-        "period": "Month",
+        "period": "M",
         "frequency": "12",
         "execute": "true"
     },
     "buyer": "Name of buyer",
-}```
+}
+```
 
-#### Only scheduling
+#### Only schedule ("execute": "false")
 
 ```js
 {
@@ -174,7 +176,7 @@ Payments using card number and password on a recurring basis.
         "amount": "10.00"
     },
     "schedule": {
-        "period": "Month",
+        "period": "M",
         "frequency": "12",
         "execute": "false"
     },
