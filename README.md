@@ -232,18 +232,17 @@ Consult payments.
 
 ### Request
 
-> GET https://sandbox.apus.exchange/v1/checkout/
+> GET https://sandbox.apus.exchange/v1/checkout/:vendorKey
 
 ```js
-{
-  "txId": ?,
-  "timestamp": ?,
-  "blockchain": ?,
-  "currency": ?,
-  "coinAmount": ?,
-  "currencyAmount": ?,
-  "buyer": ?,
-}
+https://sandbox.apus.exchange/v1/checkout/:vendorKey
+?txId=?
+&timestamp=?
+&blockchain=?
+&currency=?
+&coinAmount=?
+&currencyAmount=?
+&buyer=?
 ```
  
 ### Response
