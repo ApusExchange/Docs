@@ -19,19 +19,24 @@ Documentation of the payment platform Apus.
 | 001   | Invalid parameters                  | Some parameter sent in the body is invalid or missing        |
 | 002   | Failed to connect to the database   | Technical problem connecting to the database                 |
 | 003   | Database operation failed           | Some internal operation with database failed                 |
-| 004   | API key not found                   | API key is incorrect or not generated correctly              |
+| 004   | Vendor key not found                | Vendor key is incorrect or not generated correctly           |
 | 005   | Error checking balance              | Failed to verify account balance in blockchain               |
 | 006   | Insufficient funds                  | Wallet balance is insufficient for transaction + fees        |
 | 007   | Failed to store transaction         | Internal failure to save transaction                         |
 | 008   | Failed to fetch buyer               | Could not find buyer's registration                          |
-| 009   | Failed to fetch merchant            | Could not find merchant's registration                       |
-| 010   | Transaction not approved            | Transaction can not be approved                              |
-| 011   | Module not available                | Module (blockchain) is not implemented                       |
-| 012   | Invalid password                    | Password is invalid                                          |
-| 013   | Buyer does not have wallet          | Buyer does not have the wallet of blockchain informed        |
-| 014   | Merchant does not have wallet       | Merchant does not have the wallet of blockchain informed     |
-| 015   | Failed to send email                | Internal failure to send payment receipt email               |
-| 016   | Approved transaction                | Everything went well and the transaction was approved        |
+| 009   | Buyer not found by PAN              | Could not find buyer's registration by PAN                   |
+| 010   | Failed to fetch merchant            | Could not find merchant's registration                       |
+| 011   | Transaction not approved            | Transaction can not be approved                              |
+| 012   | Module not available                | Module (blockchain) is not implemented                       |
+| 013   | Invalid password                    | Password is invalid                                          |
+| 014   | Buyer does not have wallet          | Buyer does not have the wallet of blockchain informed        |
+| 015   | Merchant does not have wallet       | Merchant does not have the wallet of blockchain informed     |
+| 016   | Failed to send email                | Internal failure to send payment receipt email               |
+| 017   | Approved transaction                | Everything went well and the transaction was approved        |
+| 018   | Failed to store schedule            | Internal failure to save schedule                            |
+| 019   | Successful payment and scheduling   | Successful made payment and save scheduling                  |
+| 020   | Successful scheduling               | Successful save scheduling                                   |
+| 021   | Query performed successfully        | Everything went well when querying payments                  |
 
 ## Currencies supported
 
@@ -233,9 +238,6 @@ Consult payments.
 ### Request
 
 > GET https://sandbox.apus.exchange/v1/checkout/:vendorKey
-
-```js
-https://sandbox.apus.exchange/v1/checkout/:vendorKey
 ?txId=?
 &timestamp=?
 &blockchain=?
@@ -243,7 +245,6 @@ https://sandbox.apus.exchange/v1/checkout/:vendorKey
 &coinAmount=?
 &currencyAmount=?
 &buyer=?
-```
  
 ### Response
 
