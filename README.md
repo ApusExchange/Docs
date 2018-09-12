@@ -79,7 +79,7 @@ Payments using card number and password
   "blockchain": Blockchain::LTC,
   "amount": 10.00,
   "currency": "BRL",
-  "apikey": "6ZS6aF3FBnu5wEQZKsN3jbGCxUoszwDaUv89IU"
+  "vendorKey": "6ZS6aF3FBnu5wEQZKsN3jbGCxUoszwDaUv89IU"
 }
 ```
  
@@ -87,21 +87,24 @@ Payments using card number and password
 
 ```js
 {
-    "code": "016",
-    "message": "Approved transaction",
-    "txId": "74fee55a9155e2e49f34a6d0c62d3b72fd1b0f1824b68185ccf3bc8b74185158",
-    "timestamp": 1536427020652,
-    "date": "2018-09-08T14:17:00-03:00",
+    "status": {
+        "code": "017",
+        "message": "Approved transaction"
+    },
+    "transaction": {
+        "txId": "ef60f9128da76a2cf925dc7dd2d69a9452ad81131bc0ab6b79fd22f357a3327e",
+        "timestamp": 1536708260759,
+        "buyer": "Name of buyer"
+    },
     "coin": {
         "name": "LTC",
-        "amount": "0.04413179",
+        "amount": "0.04601453",
         "fee": 0.00054
     },
     "currency": {
         "name": "BRL",
         "amount": "10.00"
-    },
-    "buyer": "Name of buyer"
+    }
 }
 ```
 
@@ -125,7 +128,7 @@ Payments using card number and password on a recurring basis.
   "period": Period::MONTH,
   "frequency": 12,
   "execute": false|true,
-  "apikey": "6ZS6aF3FBnu5wEQZKsN3jbGCxUoszwDaUv89IU"
+  "vendorKey": "6ZS6aF3FBnu5wEQZKsN3jbGCxUoszwDaUv89IU"
 }
 ```
 
@@ -135,15 +138,14 @@ Payments using card number and password on a recurring basis.
 
 ```js
 {
-    "code": "017",
-    "message": "Successful payment and scheduling",
-    "id": "bbee6d15-ecc9-489e-9611-274ae7acefd3"
-    "txId": "2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f",
-    "timestamp": 1536631861766,
-    "date": "2018-09-10T23:11:01-03:00",
+    "transaction": {
+        "timestamp": 1536708242411,
+        "buyer": "Name of buyer",
+        "txId": "90a2217d6d45438b6d5fda485eb6920243825bdeb24eabd4e77fa1d33f15105e"
+    },
     "coin": {
         "name": "LTC",
-        "amount": "0.04494037",
+        "amount": "0.04601453",
         "fee": 0.00054
     },
     "currency": {
@@ -152,10 +154,14 @@ Payments using card number and password on a recurring basis.
     },
     "schedule": {
         "period": "M",
-        "frequency": "12",
-        "execute": "true"
+        "frequency": 12,
+        "execute": "true",
+        "id": "4e4bb526-e476-411c-98b7-aa9683766b34"
     },
-    "buyer": "Name of buyer",
+    "status": {
+        "code": "019",
+        "message": "Successful payment and scheduling"
+    }
 }
 ```
 
@@ -163,11 +169,10 @@ Payments using card number and password on a recurring basis.
 
 ```js
 {
-    "code": "018",
-    "message": "Successful scheduling",
-    "id": "1a19a4ee-7578-49f7-a379-1b5103e6ace6"
-    "timestamp": 1536631964775,
-    "date": "2018-09-10T23:12:44-03:00",
+    "transaction": {
+        "timestamp": 1536715932723,
+        "buyer": "Name of buyer"
+    },
     "coin": {
         "name": "LTC"
     },
@@ -177,10 +182,14 @@ Payments using card number and password on a recurring basis.
     },
     "schedule": {
         "period": "M",
-        "frequency": "12",
-        "execute": "false"
+        "frequency": 12,
+        "execute": "false",
+        "id": "04388c12-c19e-4fe0-9dc1-ac668cbc4297"
     },
-    "buyer": "Name of buyer",
+    "status": {
+        "code": "020",
+        "message": "Successful scheduling"
+    }
 }
 ```
 
@@ -227,6 +236,13 @@ Consult payments.
 
 ```js
 {
+  "txId": ?,
+  "timestamp": ?,
+  "blockchain": ?,
+  "currency": ?,
+  "coinAmount": ?,
+  "currencyAmount": ?,
+  "buyer": ?,
 }
 ```
  
@@ -234,6 +250,56 @@ Consult payments.
 
 ```js
 {
+    "status": {
+        "code": "021",
+        "message": "Query performed successfully"
+    },
+    "data": [
+    {
+        "buyer": {
+            "address": "QWKKEKRbRf2XrsbdQ8Cd5cgLxY7B6CGP37",
+            "userId": "43de9565-943e-49ff-b808-82d54a87199f"
+        },
+        "coin": {
+            "amount": "0.04494037",
+            "fee": 0.00054,
+            "name": "LTC"
+        },
+        "currency": {
+            "amount": 9.00,
+            "name": "BRL"
+        },
+        "date": "2018-09-10T23:11:03-03:00",
+        "id": "05e75c97-6c75-43e6-ac9f-02205707a364",
+        "seller": {
+            "address": "QbTaFSttxH4SfvTKoB14EKapWjk5Da5di2",
+            "userId": "5f5bdaed-f82b-4b82-b3f5-1d562633da5b"
+        },
+        "txId": "2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f"
+    },
+    {
+        "buyer": {
+            "address": "QWKKEKRbRf2XrsbdQ8Cd5cgLxY7B6CGP37",
+            "userId": "43de9565-943e-49ff-b808-82d54a87199f"
+        },
+        "coin": {
+            "amount": "0.04494557",
+            "fee": 0.00054,
+            "name": "LTC"
+        },
+        "currency": {
+            "amount": 11.00,
+            "name": "BRL"
+        },
+        "date": "2018-09-10T22:59:38-03:00",
+        "id": "0ae33f54-d66f-4751-8773-61c0f5f09357",
+        "seller": {
+            "address": "QbTaFSttxH4SfvTKoB14EKapWjk5Da5di2",
+            "userId": "5f5bdaed-f82b-4b82-b3f5-1d562633da5b"
+        },
+        "txId": "d18b42ec51e18509382ebfd5b9ca06b7df0e06403452fe65a39665a4cebe5b52"
+    }
+    ...
 }
 ```
 
