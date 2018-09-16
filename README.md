@@ -1,12 +1,7 @@
-[ApusPayments](https://apuspayments.com/)
-===========
+# [ApusPayments](https://apuspayments.com/)
 
 ApusPayments is a plataform to make payments using criptocurrencies. 
-[Documentation](https://docs.apuspayments.com/).
-
-# ApusPayments
-
-Documentation of the payment platform ApusPayments.
+[Documentatio API (v0.0.1)](https://docs.apuspayments.com/).
 
 ## Main features
 
