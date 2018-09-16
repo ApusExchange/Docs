@@ -1,13 +1,19 @@
-# Apus
+[ApusPayments](https://apuspayments.com/)
+===========
 
-Documentation of the payment platform Apus.
+ApusPayments is a plataform to make payments using criptocurrencies. 
+[Documentation](https://docs.apuspayments.com/).
+
+# ApusPayments
+
+Documentation of the payment platform ApusPayments.
 
 ## Main features
 
 * [x] Payments by card.
 * [x] Recurring payments.
 * [ ] Cancel payment.
-* [ ] Consult payments.
+* [x] Consult payments.
 * [ ] Cryptocurrency recharge.
 
 <hr>

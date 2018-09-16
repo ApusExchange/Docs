@@ -1,0 +1,746 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": " The ease of integration and security in transactions, knows a platform of payments of the future. #blockchain #bitcoin #litecoin #decred #ethereum\n# Introduction\nWith our payment platform, it is very easy to accept payment transactions in cryptocurrencies **(processed directly in the blockchain)**, there is no confidential information from customers to collect and store, and there are no cards to collect.  Customers simply send the cryptocurrency from their account directly to a merchant payment address identified by a key **(vendorKey)**.\nYou can **accept blockchain payments** in several ways. Choose a method below to get started.\n# Cross-Origin Resource\nThis API features Cross-Origin Resource Sharing **(CORS)** implemented in compliance with  [W3C spec](https://www.w3.org/TR/cors/). And that allows cross-domain communication from the browser.\nAll responses have a wildcard same-origin which makes them completely public and accessible to everyone, including any code on any site. ",
+    "version": "0.0.1",
+    "title": "ApusPayments API",
+    "termsOfService": "https://apuspayments.com/terms-of-use",
+    "contact": {
+      "email": "hello@apuspayments.com",
+      "url": "https://apuspayments.com/contact-us"
+    },
+    "x-logo": {
+      "url": "https://apuspayments.com/public/themes/frontend/assets/img/apus-black.png",
+      "altText": "ApusPayments"
+    },
+    "license": {
+      "name": "Privacy Policy",
+      "url": "https://apuspayments.com/privacy-policy"
+    }
+  },
+  "x-servers": [
+    {
+      "url": "https://api.apuspayments.com/v1",
+      "description": "Default server"
+    },
+    {
+      "url": "https://sandbox.apuspayments.com/v1",
+      "description": "Sandbox server"
+    }
+  ],
+  "host": "api.apuspayments.com",
+  "basePath": "/v1",
+  "tags": [
+    {
+      "name": "checkout",
+      "description": "Resources for payment"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/checkout": {
+      "post": {
+        "tags": [
+          "checkout"
+        ],
+        "summary": "Make a payment",
+        "description": "It is with this resource that we carry out our purchases. The checkout resource is used when we want to make a payment from A (buyer) to B (seller) and its validation depends on the stimulus of A. A checkout has a monetary value in currency **(value)**, acronym for currency **(currency)**, blockchain for transaction **(blockchain)**, card number **(pan)**, card password **(password)** and vendor identifier **(vendorKey)**",
+        "operationId": "checkoutPost",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Checkout object with the data needed to make payment",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Processed request, check status property on payload for details",
+            "schema": {
+              "$ref": "#/definitions/CheckoutResponse"
+            }
+          }
+        },
+        "x-code-samples": [
+          {
+            "lang": "cURL",
+            "source": ""
+          },
+          {
+            "lang": "Node",
+            "source": ""
+          },
+          {
+            "lang": "PHP",
+            "source": ""
+          },
+          {
+            "lang": "Java",
+            "source": ""
+          },
+          {
+            "lang": "C#",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/checkout/recurrent": {
+      "post": {
+        "tags": [
+          "checkout"
+        ],
+        "summary": "Make a recurring payment",
+        "description": "It is with this resource that we carry out our purchases on a recurring basis. The checkout resource is used when we want to make a payment or schedule a recurring payment from A (buyer) to B (seller). A checkout has a monetary value in currency **(value)**, acronym for currency **(currency)**, blockchain for transaction **(blockchain)**, card number **(pan)**, card password **(password)**, period for execution **(period)**, a frequency in numeral **(frequency)**, a boolean to execute or not the payment at the time **(execute)** and a vendor identifier **(vendorKey)**",
+        "operationId": "checkoutRecurrentPost",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Checkout recurrent object with the data needed to make payment recurrent",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CheckoutRecurrent"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Processed request, check status property on payload for details",
+            "schema": {
+              "$ref": "#/definitions/CheckoutRecurrentResponse"
+            }
+          }
+        },
+        "x-code-samples": [
+          {
+            "lang": "cURL",
+            "source": ""
+          },
+          {
+            "lang": "Node",
+            "source": ""
+          },
+          {
+            "lang": "PHP",
+            "source": ""
+          },
+          {
+            "lang": "Java",
+            "source": ""
+          },
+          {
+            "lang": "C#",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/checkout/{vendorKey}": {
+      "get": {
+        "tags": [
+          "checkout"
+        ],
+        "summary": "Search payments",
+        "description": "Feature used to consult payments through the available filters",
+        "operationId": "searchCheckoutGet",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "vendorKey",
+            "in": "path",
+            "description": "Merchant identification, generated through the merchant account on the https://apuspayments.com",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "txId",
+            "in": "query",
+            "description": "Transaction identifier",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "timestamp",
+            "in": "query",
+            "description": "Date in timestamp format",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "blockchain",
+            "in": "query",
+            "description": "Payment blockchain identifier",
+            "required": false,
+            "type": "string",
+            "items": {
+              "type": "string",
+              "enum": [
+                "BTC",
+                "DCR",
+                "ETH",
+                "LTC"
+              ]
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "description": "Currency symbol",
+            "required": false,
+            "type": "string",
+            "items": {
+              "type": "string",
+              "enum": [
+                "BLR",
+                "CAD",
+                "CNY",
+                "EUR",
+                "JPY",
+                "USD"
+              ]
+            }
+          },
+          {
+            "name": "coinAmount",
+            "in": "query",
+            "description": "Amount in the crypto format",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "currencyAmount",
+            "in": "query",
+            "description": "Amount in the currency format",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "buyer",
+            "in": "query",
+            "description": "Buyer identifier",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Processed request, check status property on payload for details",
+            "schema": {
+              "$ref": "#/definitions/CheckoutSearchResponse"
+            }
+          }
+        },
+        "x-code-samples": [
+          {
+            "lang": "cURL",
+            "source": ""
+          },
+          {
+            "lang": "Node",
+            "source": ""
+          },
+          {
+            "lang": "PHP",
+            "source": ""
+          },
+          {
+            "lang": "Java",
+            "source": ""
+          },
+          {
+            "lang": "C#",
+            "source": ""
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "Status": {
+      "description": "Represents the server state after processing a request",
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "3-digit number (with leading leading zeros) that identifies status"
+        },
+        "message": {
+          "type": "string",
+          "description": "Status description"
+        },
+        "detail": {
+          "type": "string",
+          "description": "Details about the status description"
+        }
+      }
+    },
+    "Checkout": {
+      "description": "Object used to perform a checkout (sale), responsible for transferring values from a customer to a merchant",
+      "type": "object",
+      "example": {
+        "pan": "0866a6eaea5cb085e4cf6ef19296bf19647552dd5f96f1e530db3ae61837efe7",
+        "password": "c66f1f34f49381e467d3abd43c77947f5d1dd362fd0eec6c2c1f27233ae9adf9",
+        "blockchain": "LTC",
+        "amount": 10,
+        "currency": "BRL",
+        "vendorKey": "5f5bdaed-f82b-4b82-b3f5-1d562633da5b"
+      },
+      "required": [
+        "pan",
+        "password",
+        "blockchain",
+        "amount",
+        "currency",
+        "vendorKey"
+      ],
+      "properties": {
+        "pan": {
+          "type": "string",
+          "description": "SHA256 card number. Note: case insensitive"
+        },
+        "password": {
+          "type": "string",
+          "description": "SHA256 card password (sent by email). Note: case insensitive"
+        },
+        "blockchain": {
+          "type": "string",
+          "description": "It defines which cryptocurrency the transaction will use, this determines in which blockchain the transaction will be registered",
+          "enum": [
+            "BTC",
+            "DCR",
+            "ETH",
+            "LTC"
+          ]
+        },
+        "amount": {
+          "type": "number",
+          "format": "double",
+          "description": "Amount to be transferred, the currency used is defined in the \"currency\" property"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Symbol of the currency used in the transfer, the amount is defined in the property \"amount\"",
+          "enum": [
+            "BLR",
+            "CAD",
+            "CNY",
+            "EUR",
+            "JPY",
+            "USD"
+          ]
+        },
+        "vendorKey": {
+          "type": "string",
+          "description": "Merchant identification, generated through the merchant account on the https://apuspayments.com"
+        }
+      }
+    },
+    "CheckoutRecurrent": {
+      "description": "Object used to perform a checkout recurrent, responsible to make payments recurrent or schedule of payments from a customer to a merchant",
+      "type": "object",
+      "example": {
+        "pan": "0866a6eaea5cb085e4cf6ef19296bf19647552dd5f96f1e530db3ae61837efe7",
+        "password": "c66f1f34f49381e467d3abd43c77947f5d1dd362fd0eec6c2c1f27233ae9adf9",
+        "blockchain": "LTC",
+        "amount": 10,
+        "currency": "BRL",
+        "period": "M",
+        "frequency": 12,
+        "execute": true,
+        "vendorKey": "5f5bdaed-f82b-4b82-b3f5-1d562633da5b"
+      },
+      "required": [
+        "pan",
+        "password",
+        "blockchain",
+        "amount",
+        "currency",
+        "period",
+        "frequency",
+        "execute",
+        "vendorKey"
+      ],
+      "properties": {
+        "pan": {
+          "type": "string",
+          "description": "SHA256 card number. Note: case insensitive"
+        },
+        "password": {
+          "type": "string",
+          "description": "SHA256 card password (sent by email). Note: case insensitive"
+        },
+        "blockchain": {
+          "type": "string",
+          "description": "It defines which cryptocurrency the transaction will use, this determines in which blockchain the transaction will be registered",
+          "enum": [
+            "BTC",
+            "DCR",
+            "ETH",
+            "LTC"
+          ]
+        },
+        "amount": {
+          "type": "number",
+          "format": "double",
+          "description": "Amount to be transferred, the currency used is defined in the \"currency\" property"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Symbol of the currency used in the transfer, the amount is defined in the property \"amount\"",
+          "enum": [
+            "BLR",
+            "CAD",
+            "CNY",
+            "EUR",
+            "JPY",
+            "USD"
+          ]
+        },
+        "period": {
+          "type": "string",
+          "description": "Type of period that payment or payment schedule occurs, daily [D], weekly [W], monthly [M], annual [Y]",
+          "enum": [
+            "D",
+            "W",
+            "M",
+            "Y"
+          ]
+        },
+        "frequency": {
+          "type": "number",
+          "format": "integer",
+          "description": "Frequency in which the payment/scheduling must be performed, works in conjunction with the type of payment/scheduling period"
+        },
+        "execute": {
+          "type": "boolean",
+          "description": "Flag to inform if payment will be executed immediately or will be scheduled only"
+        },
+        "vendorKey": {
+          "type": "string",
+          "description": "Merchant identification, generated through the merchant account on the https://apuspayments.com"
+        }
+      }
+    },
+    "CheckoutResponse": {
+      "description": "Object sent by the server after a checkout (success)",
+      "type": "object",
+      "example": {
+        "status": {
+          "code": "017",
+          "message": "Approved transaction"
+        },
+        "transaction": {
+          "txId": "7f4234dc861639917cd1823ef19aa058083d7582565d9f1f0277ce09126976de",
+          "timestamp": 1537115308676,
+          "buyer": "Fellipe"
+        },
+        "coin": {
+          "name": "LTC",
+          "amount": 0.04222928,
+          "fee": 0.00054
+        },
+        "currency": {
+          "name": "BRL",
+          "amount": 10
+        }
+      },
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "transaction": {
+          "$ref": "#/definitions/Transaction"
+        },
+        "coin": {
+          "$ref": "#/definitions/Coin"
+        },
+        "currency": {
+          "$ref": "#/definitions/Currency"
+        }
+      }
+    },
+    "CheckoutRecurrentResponse": {
+      "description": "Object sent by the server after performing a recurring checkout",
+      "type": "object",
+      "example": {
+        "transaction": {
+          "timestamp": 1537119136020,
+          "buyer": "Fellipe",
+          "txId": "6cfb7a01d9e43b9eeb84899d105961d2cebad086891868a27ff595d3af13a414"
+        },
+        "coin": {
+          "name": "LTC",
+          "amount": 0.00042208,
+          "fee": 0.00054
+        },
+        "currency": {
+          "name": "BRL",
+          "amount": 0.1
+        },
+        "schedule": {
+          "period": "M",
+          "frequency": 12,
+          "execute": true,
+          "id": "2bbf8768-8e6e-4d8b-8145-54ac501b4533"
+        },
+        "status": {
+          "code": "019",
+          "message": "Successful payment and scheduling"
+        }
+      },
+      "properties": {
+        "transaction": {
+          "$ref": "#/definitions/Transaction"
+        },
+        "coin": {
+          "$ref": "#/definitions/Coin"
+        },
+        "currency": {
+          "$ref": "#/definitions/Currency"
+        },
+        "schedule": {
+          "$ref": "#/definitions/Schedule"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        }
+      }
+    },
+    "Coin": {
+      "description": "Cryptocurrency used in the transaction, includes the amount and rate charged by the network (blockchain) to deal.",
+      "type": "object",
+      "example": {
+        "name": "LTC",
+        "amount": 0.04222928,
+        "fee": 0.00054
+      },
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Blockchain code abbreviated in 3 characters"
+        },
+        "amount": {
+          "type": "number",
+          "description": "Amount to be transferred"
+        },
+        "fee": {
+          "type": "string",
+          "description": "Fee paid to perform the transfer"
+        }
+      }
+    },
+    "Currency": {
+      "description": "Currency used as reference for the checkout. It is important to remember that before the transaction is made the amount in Currency will be changed to Coin (ex: USD to LTC)",
+      "type": "object",
+      "example": {
+        "name": "USD",
+        "amount": 10
+      },
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Currency code abbreviated in 3 characters"
+        },
+        "amount": {
+          "type": "number",
+          "description": "Amount to be transferred"
+        }
+      }
+    },
+    "Transaction": {
+      "description": "Contains details of the blockchain transaction",
+      "type": "object",
+      "example": {
+        "txId": "7f4234dc861639917cd1823ef19aa058083d7582565d9f1f0277ce09126976de",
+        "timestamp": 1537115308676,
+        "buyer": "Complete Buyer Name"
+      },
+      "properties": {
+        "txId": {
+          "type": "string",
+          "description": "Transaction identifier in blockchain"
+        },
+        "timestamp": {
+          "type": "number",
+          "description": "Timestamp of the transaction, the displayed value is the date and time of the transaction"
+        },
+        "buyer": {
+          "type": "string",
+          "description": "Name of the buyer (cardholder) who made the transaction"
+        }
+      }
+    },
+    "Schedule": {
+      "description": "Contains payment scheduling details",
+      "type": "object",
+      "example": {
+        "period": "M",
+        "frequency": "12,",
+        "execute": "true,",
+        "id": "2bbf8768-8e6e-4d8b-8145-54ac501b4533"
+      },
+      "properties": {
+        "period": {
+          "type": "string",
+          "description": "Period code abbreviated by 1 character"
+        },
+        "frequency": {
+          "type": "integer",
+          "description": "Number of times the parcel will be applied"
+        },
+        "execute": {
+          "type": "boolean",
+          "description": "Indicates whether the first installment should run at the beginning of the period (otherwise run only in the second period)"
+        },
+        "id": {
+          "type": "string",
+          "description": "Payment schedule identifier"
+        }
+      }
+    },
+    "CheckoutSearchResponse": {
+      "description": "Result of a search for checkouts",
+      "type": "object",
+      "example": {
+        "status": {
+          "code": "021",
+          "message": "Query performed successfully"
+        },
+        "data": [
+          {
+            "buyer": {
+              "address": "QWKKEKRbRf2XrsbdQ8Cd5cgLxY7B6CGP37",
+              "userId": "43de9565-943e-49ff-b808-82d54a87199f"
+            },
+            "coin": {
+              "amount": "0.04494037",
+              "fee": 0.00054,
+              "name": "LTC"
+            },
+            "currency": {
+              "amount": "10.00",
+              "name": "BRL"
+            },
+            "date": "2018-09-10T23:11:03-03:00",
+            "id": "05e75c97-6c75-43e6-ac9f-02205707a364",
+            "seller": {
+              "address": "QbTaFSttxH4SfvTKoB14EKapWjk5Da5di2",
+              "userId": "5f5bdaed-f82b-4b82-b3f5-1d562633da5b"
+            },
+            "txId": "2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f"
+          }
+        ]
+      },
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "data": {
+          "type": "array",
+          "description": "List containing objects found",
+          "items": {
+            "$ref": "#/definitions/CheckoutSearch"
+          }
+        }
+      }
+    },
+    "CheckoutSearch": {
+      "description": "Object returned after successful search",
+      "example": {
+        "buyer": {
+          "address": "QWKKEKRbRf2XrsbdQ8Cd5cgLxY7B6CGP37",
+          "userId": "43de9565-943e-49ff-b808-82d54a87199f"
+        },
+        "coin": {
+          "amount": "0.04494037",
+          "fee": 0.00054,
+          "name": "LTC"
+        },
+        "currency": {
+          "amount": "10.00",
+          "name": "BRL"
+        },
+        "date": "2018-09-10T23:11:03-03:00",
+        "id": "05e75c97-6c75-43e6-ac9f-02205707a364",
+        "seller": {
+          "address": "QbTaFSttxH4SfvTKoB14EKapWjk5Da5di2",
+          "userId": "5f5bdaed-f82b-4b82-b3f5-1d562633da5b"
+        },
+        "txId": "2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f"
+      },
+      "properties": {
+        "buyer": {
+          "$ref": "#/definitions/User"
+        },
+        "coin": {
+          "$ref": "#/definitions/Coin"
+        },
+        "currency": {
+          "$ref": "#/definitions/Currency"
+        },
+        "date": {
+          "type": "string",
+          "description": "Date of checkout",
+          "format": "date-time"
+        },
+        "txId": {
+          "type": "string",
+          "description": "Transaction identifier in blockchain"
+        },
+        "id": {
+          "type": "string",
+          "description": "Identification of the checkout in ApusPayments"
+        },
+        "seller": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    },
+    "User": {
+      "description": "Contains details of the buyer or seller user",
+      "type": "object",
+      "example": {
+        "address": "QWKKEKRbRf2XrsbdQ8Cd5cgLxY7B6CGP37",
+        "userId": "43de9565-943e-49ff-b808-82d54a87199f"
+      },
+      "properties": {
+        "address": {
+          "type": "string",
+          "description": "TODO"
+        },
+        "userId": {
+          "type": "integer",
+          "description": "TODO"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Ask your questions in our contact",
+    "url": "https://apuspayments.com/contact-us"
+  }
+}
