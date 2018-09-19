@@ -211,63 +211,6 @@
         ]
       }
     },
-    "/checkout": {
-      "delete": {
-        "tags": [
-          "checkout"
-        ],
-        "summary": "Cancel a payment",
-        "description": "It is with this rresource that we cancel a payment. The feature is used when we want to make a payment cancellation (charge-back) by performing the reverse transaction of the same type previously sent from A (seller) to B (buyer). A checkout cancellation has a transaction identifier **(txId)**, seller's administrative password **(password)** and a vendor identifier **(vendorKey)**",
-        "operationId": "checkoutDelete",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "A checkout cancellation object with the data needed to make charge-back",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/CheckoutCancel"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Processed request, check status property on payload for details",
-            "schema": {
-              "$ref": "#/definitions/CheckoutResponse"
-            }
-          }
-        },
-        "x-code-samples": [
-          {
-            "lang": "cURL",
-            "source": ""
-          },
-          {
-            "lang": "Node",
-            "source": ""
-          },
-          {
-            "lang": "PHP",
-            "source": ""
-          },
-          {
-            "lang": "Java",
-            "source": ""
-          },
-          {
-            "lang": "C#",
-            "source": ""
-          }
-        ]
-      }
-    },
     "/checkout/{vendorKey}": {
       "get": {
         "tags": [
@@ -391,7 +334,64 @@
           }
         ]
       }
-    }
+    },
+    "/checkout/": {
+      "delete": {
+        "tags": [
+          "checkout"
+        ],
+        "summary": "Cancel a payment",
+        "description": "It is with this rresource that we cancel a payment. The feature is used when we want to make a payment cancellation (charge-back) by performing the reverse transaction of the same type previously sent from A (seller) to B (buyer). A checkout cancellation has a transaction identifier **(txId)**, seller's administrative password **(password)** and a vendor identifier **(vendorKey)**",
+        "operationId": "checkoutDelete",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "A checkout cancellation object with the data needed to make charge-back",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CheckoutCancel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Processed request, check status property on payload for details",
+            "schema": {
+              "$ref": "#/definitions/CheckoutResponse"
+            }
+          }
+        },
+        "x-code-samples": [
+          {
+            "lang": "cURL",
+            "source": ""
+          },
+          {
+            "lang": "Node",
+            "source": ""
+          },
+          {
+            "lang": "PHP",
+            "source": ""
+          },
+          {
+            "lang": "Java",
+            "source": ""
+          },
+          {
+            "lang": "C#",
+            "source": ""
+          }
+        ]
+      }
+    }    
   },
   "definitions": {
     "Status": {
