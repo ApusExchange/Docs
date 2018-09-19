@@ -2,7 +2,7 @@
 
 ApusPayments is a plataform to make payments using criptocurrencies. 
 
-[Documentation API (v0.0.1)](https://docs.apuspayments.com/).
+[Documentation API (v0.0.1)](https://docs.apuspayments.com/)
 
 <hr>
 
@@ -12,7 +12,7 @@ ApusPayments is a plataform to make payments using criptocurrencies.
 * [x] Recurring payments.
 * [ ] Cancel payment.
 * [x] Consult payments.
-* [ ] Cryptocurrency recharge.
+* [x] Cryptocurrency recharge.
 
 <hr>
 
@@ -321,10 +321,10 @@ Refill card with merchant's cryptocurrency balance.
 {
   "pan": "0000111122223333",
   "password": "*******",
-  "blockchain": Blockchain::BTC,
+  "blockchain": Blockchain::LTC,
   "amount": 10.00,
   "currency": "BRL",
-  "apikey": "6ZS6aF3FBnu5wEQZKsN3jbGCxUoszwDaUv89IU"
+  "vendorKey": "6ZS6aF3FBnu5wEQZKsN3jbGCxUoszwDaUv89IU"
 }
 ```
  
@@ -332,11 +332,23 @@ Refill card with merchant's cryptocurrency balance.
 
 ```js
 {
-    "code": 002,
-    "message": "Recarga efetuada com sucesso!",
-    "txid": "d5a82f2e8469b1d30a98cbca29c40cb732c46c6b19ab729e1785806237417153",
-    "data": {
-        ?: ?
+    "status": {
+        "code": "017",
+        "message": "Approved transaction"
+    },
+    "transaction": {
+        "txId": "ef60f9128da76a2cf925dc7dd2d69a9452ad81131bc0ab6b79fd22f357a3327e",
+        "timestamp": 1536708260759,
+        "buyer": "Name of buyer"
+    },
+    "coin": {
+        "name": "LTC",
+        "amount": "0.04601453",
+        "fee": 0.00054
+    },
+    "currency": {
+        "name": "BRL",
+        "amount": "10.00"
     }
 }
 ```
