@@ -211,6 +211,63 @@
         ]
       }
     },
+    "/checkout": {
+      "delete": {
+        "tags": [
+          "checkout"
+        ],
+        "summary": "Cancel a payment",
+        "description": "It is with this rresource that we cancel a payment. The feature is used when we want to make a payment cancellation (charge-back) by performing the reverse transaction of the same type previously sent from A (seller) to B (buyer). A checkout cancellation has a transaction identifier **(txId)**, seller's administrative password **(password)** and a vendor identifier **(vendorKey)**",
+        "operationId": "checkoutDelete",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "A checkout cancellation object with the data needed to make charge-back",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CheckoutCancel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Processed request, check status property on payload for details",
+            "schema": {
+              "$ref": "#/definitions/CheckoutResponse"
+            }
+          }
+        },
+        "x-code-samples": [
+          {
+            "lang": "cURL",
+            "source": ""
+          },
+          {
+            "lang": "Node",
+            "source": ""
+          },
+          {
+            "lang": "PHP",
+            "source": ""
+          },
+          {
+            "lang": "Java",
+            "source": ""
+          },
+          {
+            "lang": "C#",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/checkout/{vendorKey}": {
       "get": {
         "tags": [
@@ -352,6 +409,24 @@
         "detail": {
           "type": "string",
           "description": "Details about the status description"
+        }
+      }
+    },
+    "CheckoutCancel": {
+      "description": "Object used to perform a cancellation of payment (charge-back)",
+      "type": "object",
+      "properties": {
+        "txId": {
+          "type": "string",
+          "description": "Transaction identifier in blockchain"
+        },
+        "password": {
+          "type": "string",
+          "description": "SHA256 seller's administrative password (sent by email). Note: case insensitive"
+        },
+        "vendorKey": {
+          "type": "string",
+          "description": "Merchant identification, generated through the merchant account on the https://apuspayments.com"
         }
       }
     },
