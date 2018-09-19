@@ -415,6 +415,16 @@
     "CheckoutCancel": {
       "description": "Object used to perform a cancellation of payment (charge-back)",
       "type": "object",
+      "example": {
+        "txId": "2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f",
+        "password": "c66f1f34f49381e467d3abd43c77947f5d1dd362fd0eec6c2c1f27233ae9adf9",
+        "vendorKey": "5f5bdaed-f82b-4b82-b3f5-1d562633da5b"
+      },
+      "required": [
+        "txId",
+        "password",
+        "vendorKey"
+      ],
       "properties": {
         "txId": {
           "type": "string",
