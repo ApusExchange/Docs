@@ -45,7 +45,7 @@
         "tags": [
           "checkin"
         ],
-        "summary": "Recharge card balance in cryptocurrency",
+        "summary": "Recharge of cryptocurrency balance",
         "description": "It is with this resource that we carry out a recharge of balance on the buyer's card with the seller's cryptocurrencies. The checkin feature is used when we want to recharge cryptocurrency from A (seller) to B (buyer). A checkin has a monetary value in currency **(amount)**, acronym for currency **(currency)**, blockchain for transaction **(blockchain)**, card number **(pan)**, seller's administrative password **(password)** and vendor identifier **(vendorKey)**",
         "operationId": "checkinPost",
         "consumes": [
