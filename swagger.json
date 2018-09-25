@@ -272,7 +272,7 @@
             "items": {
               "type": "string",
               "enum": [
-                "BLR",
+                "BRL",
                 "CAD",
                 "CNY",
                 "EUR",
@@ -487,7 +487,7 @@
           "type": "string",
           "description": "Symbol of the currency used in the transfer, the amount is defined in the property \"amount\"",
           "enum": [
-            "BLR",
+            "BRL",
             "CAD",
             "CNY",
             "EUR",
@@ -548,7 +548,7 @@
           "type": "string",
           "description": "Symbol of the currency used in the transfer, the amount is defined in the property \"amount\"",
           "enum": [
-            "BLR",
+            "BRL",
             "CAD",
             "CNY",
             "EUR",
@@ -615,7 +615,7 @@
           "type": "string",
           "description": "Symbol of the currency used in the transfer, the amount is defined in the property \"amount\"",
           "enum": [
-            "BLR",
+            "BRL",
             "CAD",
             "CNY",
             "EUR",
