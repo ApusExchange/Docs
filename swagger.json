@@ -80,21 +80,21 @@
           },
           {
             "lang": "Node",
-            "source": "const ApusPaymentsAPI = require('./apus');
+            "source": "const ApusPaymentsAPI = require('./apus');\n
 
-              const rechargeCryptoBalance = {
-                   \"vendorKey\": \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\",
-                   \"txId\": \"2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f\",
-                   \"timestamp\": new Date(\"2018-09-10T23:11:03-03:00\").getTime(),
-                   \"blockchain\": \"LTC\",
-                   \"currency\": \"BRL\",
-                   \"coinAmount\": \"0.04494037\",
-                   \"currencyAmount\": \"10.00\",
-                   \"buyer\": \"43de9565-943e-49ff-b808-82d54a87199f\"
-              };
+              const rechargeCryptoBalance = {\n
+                   \"vendorKey\": \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\",\n
+                   \"txId\": \"2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f\",\n
+                   \"timestamp\": new Date(\"2018-09-10T23:11:03-03:00\").getTime(),\n
+                   \"blockchain\": \"LTC\",\n
+                   \"currency\": \"BRL\",\n
+                   \"coinAmount\": \"0.04494037\",\n
+                   \"currencyAmount\": \"10.00\",\n
+                   \"buyer\": \"43de9565-943e-49ff-b808-82d54a87199f\"\n
+              };\n
               
-              ApusPaymentsAPI.rechargeCryptoBalance(rechargeCryptoBalance, function (result) {
-                  console.log(\"result: \", result);
+              ApusPaymentsAPI.rechargeCryptoBalance(rechargeCryptoBalance, function (result) {\n
+                  console.log(\"result: \", result);\n
               });"
           },
           {
