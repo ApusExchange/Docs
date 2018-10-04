@@ -2,7 +2,7 @@
 
 ApusPayments is a plataform to make payments using criptocurrencies. 
 
-[Documentation API ![GitHub manifest version](https://img.shields.io/github/manifest-json/v/apuspayments/docs.svg)](https://docs.apuspayments.com/)
+[Documentation API](https://docs.apuspayments.com/) ![GitHub manifest version](https://img.shields.io/github/manifest-json/v/apuspayments/docs.svg)
 
 <hr>
 
