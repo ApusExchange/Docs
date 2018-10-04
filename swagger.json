@@ -80,36 +80,39 @@
           },
           {
             "lang": "Node",
-            "source": "const ApusPaymentsAPI = require('./apuspayments');\n
+            "source": "const apusPaymentsAPI = require('./apuspayments');\n
 
-              const rechargeCryptoBalance = {\n
-                   \"vendorKey\": \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\",\n
-                   \"txId\": \"2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f\",\n
-                   \"timestamp\": new Date(\"2018-09-10T23:11:03-03:00\").getTime(),\n
-                   \"blockchain\": \"LTC\",\n
-                   \"currency\": \"BRL\",\n
-                   \"coinAmount\": \"0.04494037\",\n
-                   \"currencyAmount\": \"10.00\",\n
-                   \"buyer\": \"43de9565-943e-49ff-b808-82d54a87199f\"\n
-              };\n
-              
-              ApusPaymentsAPI.rechargeCryptoBalance(rechargeCryptoBalance, function (result) {\n
-                  console.log(\"result: \", result);\n
-              });"
+const rechargeCryptoBalance = {\n
+   \"vendorKey\": \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\",\n
+   \"txId\": \"2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f\",\n
+   \"timestamp\": new Date(\"2018-09-10T23:11:03-03:00\").getTime(),\n
+   \"blockchain\": \"LTC\",\n
+   \"currency\": \"BRL\",\n
+   \"coinAmount\": \"0.04494037\",\n
+   \"currencyAmount\": \"10.00\",\n
+   \"buyer\": \"43de9565-943e-49ff-b808-82d54a87199f\"\n
+};\n
+
+apusPaymentsAPI.rechargeCryptoBalance(rechargeCryptoBalance, function (result) {\n
+  console.log(\"result: \", result);\n
+});"
           },
           {
             "lang": "PHP",
-            "source": "$platform = new Platform(Environment::sandbox());\n
+            "source": "$apusPaymentsAPI = new ApusPaymentsAPI(Environment::sandbox());\n
 
-              $rechargeCryptoBalance = new RechargeCryptoBalance();\n
-              $rechargeCryptoBalance->setAmount(10.00);\n
-              $rechargeCryptoBalance->setBlockchain(BlockChainType::LTC);\n
-              $rechargeCryptoBalance->setCurrency(CurrencyType::BRL);\n
-              $rechargeCryptoBalance->setPan(hash(\"sha256\", \"9999999999999999\"));\n
-              $rechargeCryptoBalance->setPassword(hash(\"sha256\", \"1234\"));\n
-              $rechargeCryptoBalance->setVendorKey(\"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\");\n
-              
-              $rechargeCryptoBalanceReturn = $platform->rechargeCryptoBalance($rechargeCryptoBalance);"
+$rechargeCryptoBalance = new RechargeCryptoBalance();\n
+
+$rechargeCryptoBalance->setAmount(10.00);\n
+$rechargeCryptoBalance->setBlockchain(BlockChainType::LTC);\n
+$rechargeCryptoBalance->setCurrency(CurrencyType::BRL);\n
+$rechargeCryptoBalance->setPan(\"9999999999999999\");\n
+$rechargeCryptoBalance->setPassword(\"1234\");\n
+$rechargeCryptoBalance->setVendorKey(\"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\");\n
+
+$rechargeCryptoBalanceResponse = $apusPaymentsAPI->rechargeCryptoBalance($rechargeCryptoBalance);\n
+
+print_r($rechargeCryptoBalanceResponse);"
           },
           {
             "lang": "Java",
@@ -119,17 +122,17 @@
             "lang": "C#",
             "source": "ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);\n
 
-              RechargeCryptoBalance rechargeCryptoBalance = new RechargeCryptoBalance();\n
-              rechargeCryptoBalance.pan = \"9999999999999999\";\n
-              rechargeCryptoBalance.password = \"1234\";\n
-              rechargeCryptoBalance.blockchain = BlockChainType.LTC;\n
-              rechargeCryptoBalance.amount = 13.88;\n
-              rechargeCryptoBalance.currency = CurrencyType.BRL;\n
-              rechargeCryptoBalance.vendorKey = \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\";\n
+RechargeCryptoBalance rechargeCryptoBalance = new RechargeCryptoBalance();\n
+rechargeCryptoBalance.pan = \"9999999999999999\";\n
+rechargeCryptoBalance.password = \"1234\";\n
+rechargeCryptoBalance.blockchain = BlockChainType.LTC;\n
+rechargeCryptoBalance.amount = 13.88;\n
+rechargeCryptoBalance.currency = CurrencyType.BRL;\n
+rechargeCryptoBalance.vendorKey = \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\";\n
 
-              var rechargeCryptoBalanceReturn = apusPaymentsAPI.RechargeCryptoBalance(rechargeCryptoBalance);\n
+var rechargeCryptoBalanceReturn = apusPaymentsAPI.RechargeCryptoBalance(rechargeCryptoBalance);\n
 
-              Console.WriteLine(\"Recharge of Crypto Balance: \" + JsonConvert.SerializeObject(rechargeCryptoBalanceReturn))"
+Console.WriteLine(\"Recharge of Crypto Balance: \" + JsonConvert.SerializeObject(rechargeCryptoBalanceReturn))"
           }
         ]
       }
@@ -174,34 +177,37 @@
           },
           {
             "lang": "Node",
-            "source": "const ApusPaymentsAPI = require('./apuspayments');\n
+            "source": "const apusPaymentsAPI = require('./apuspayments');\n
 
-            const payment = {\n
-                \"pan\": \"9999999999999999\",\n
-                \"password\": \"1234\",\n
-                \"blockchain\": \"LTC\",\n
-                \"amount\": 10.03,\n
-                \"currency\": \"BRL\",\n
-                \"vendorKey\": \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\"\n
-            };\n
-            
-            ApusPaymentsAPI.makePayment(payment, function (result) {\n
-                console.log(\"result: \", result);\n
-            });"
+const payment = {\n
+  \"pan\": \"9999999999999999\",\n
+  \"password\": \"1234\",\n
+  \"blockchain\": \"LTC\",\n
+  \"amount\": 10.03,\n
+  \"currency\": \"BRL\",\n
+  \"vendorKey\": \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\"\n
+};\n
+
+apusPaymentsAPI.makePayment(payment, function (result) {\n
+  console.log(\"result: \", result);\n
+});"
           },
           {
             "lang": "PHP",
-            "source": "$platform = new Platform(Environment::sandbox());\n
+            "source": "$apusPaymentsAPI = new ApusPaymentsAPI(Environment::sandbox());\n
 
-            $makePayment = new MakePayment();\n
-            $makePayment->setAmount(0.01);\n
-            $makePayment->setBlockchain(BlockChainType::LTC);\n
-            $makePayment->setCurrency(CurrencyType::BRL);\n
-            $makePayment->setPan(hash(\"sha256\", \"9999999999999999\"));\n
-            $makePayment->setPassword(hash(\"sha256\", \"1234\"));\n
-            $makePayment->setVendorKey(\"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\");\n
-            
-            $makePaymentReturn = $platform->makePayment($makePayment);"
+$makePayment = new MakePayment();\n
+
+$makePayment->setAmount(10.00);\n
+$makePayment->setBlockchain(BlockChainType::LTC);\n
+$makePayment->setCurrency(CurrencyType::BRL);\n
+$makePayment->setPan(\"9999999999999999\");\n
+$makePayment->setPassword(\"1234\");\n
+$makePayment->setVendorKey(\"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\");\n
+
+$makePaymentResponse = $apusPaymentsAPI->makePayment($makePayment);\n
+
+print_r($makePaymentResponse);"
           },
           {
             "lang": "Java",
@@ -211,17 +217,17 @@
             "lang": "C#",
             "source": "ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);\n
 
-            MakePayment makePayment = new MakePayment();\n
-            makePayment.pan = \"9999999999999999\";\n
-            makePayment.password = \"1234\";\n
-            makePayment.blockchain = BlockChainType.LTC;\n
-            makePayment.amount = 13.88;\n
-            makePayment.currency = CurrencyType.BRL;\n
-            makePayment.vendorKey = \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\";\n
+MakePayment makePayment = new MakePayment();\n
+makePayment.pan = \"9999999999999999\";\n
+makePayment.password = \"1234\";\n
+makePayment.blockchain = BlockChainType.LTC;\n
+makePayment.amount = 13.88;\n
+makePayment.currency = CurrencyType.BRL;\n
+makePayment.vendorKey = \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\";\n
 
-            var makePaymentReturn = apusPaymentsAPI.MakePayment(makePayment);\n
+var makePaymentReturn = apusPaymentsAPI.MakePayment(makePayment);\n
 
-            Console.WriteLine(\"Make a Payment: \" + JsonConvert.SerializeObject(makePaymentReturn));"
+Console.WriteLine(\"Make a Payment: \" + JsonConvert.SerializeObject(makePaymentReturn));"
           }
         ]
       }
@@ -266,27 +272,43 @@
           },
           {
             "lang": "Node",
-            "source": "const ApusPaymentsAPI = require('./apuspayments');\n
+            "source": "const apusPaymentsAPI = require('./apuspayments');\n
 
-              const paymentRecurring = {\n
-                  \"pan\": \"9999999999999999\",\n
-                  \"password\": \"1234\",\n
-                  \"blockchain\": \"LTC\",\n
-                  \"amount\": 10.03,\n
-                  \"currency\": \"BRL\",\n
-                  \"period\": \"W\",\n
-                  \"frequency\": \"10\",\n
-                  \"execute\": false,\n
-                  \"vendorKey\": \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\"\n
-              };\n
-              
-              ApusPaymentsAPI.makeRecurringPayment(paymentRecurring, function (result) {\n
-                  console.log(\"result: \", result);\n
-              });"
+const paymentRecurring = {\n
+  \"pan\": \"9999999999999999\",\n
+  \"password\": \"1234\",\n
+  \"blockchain\": \"LTC\",\n
+  \"amount\": 10.03,\n
+  \"currency\": \"BRL\",\n
+  \"period\": \"W\",\n
+  \"frequency\": \"10\",\n
+  \"execute\": false,\n
+  \"vendorKey\": \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\"\n
+};\n
+
+apusPaymentsAPI.makeRecurringPayment(paymentRecurring, function (result) {\n
+  console.log(\"result: \", result);\n
+});"
           },
           {
             "lang": "PHP",
-            "source": ""
+            "source": "$apusPaymentsAPI = new ApusPaymentsAPI(Environment::sandbox());\n
+
+$makeRecurringPayment = new MakeRecurringPayment();\n
+
+$makeRecurringPayment->setAmount(10.00);\n
+$makeRecurringPayment->setBlockchain(BlockChainType::LTC);\n
+$makeRecurringPayment->setCurrency(CurrencyType::BRL);\n
+$makeRecurringPayment->setPeriod(PeriodType::M);\n
+$makeRecurringPayment->setFrequency(12);\n
+$makeRecurringPayment->setExecute(true);\n
+$makeRecurringPayment->setPan(\"9999999999999999\");\n
+$makeRecurringPayment->setPassword(\"1234\");\n
+$makeRecurringPayment->setVendorKey(\"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\");\n
+
+$makeRecurringPaymentResponse = $apusPaymentsAPI->makeRecurringPayment($makePayment);\n
+
+print_r($makeRecurringPaymentResponse);"
           },
           {
             "lang": "Java",
@@ -296,18 +318,18 @@
             "lang": "C#",
             "source": "ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);\n
 
-             MakeRecurringPayment makeRecurringPayment = new MakeRecurringPayment();\n
-             makeRecurringPayment.pan = \"9999999999999999\";\n
-             makeRecurringPayment.password = \"1234\";\n
-             makeRecurringPayment.blockchain = BlockChainType.LTC;\n
-             makeRecurringPayment.amount = 13.88;\n
-             makeRecurringPayment.currency = CurrencyType.BRL;\n
-             makeRecurringPayment.period = PeriodType.M;\n
-             makeRecurringPayment.vendorKey = \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\";\n
+MakeRecurringPayment makeRecurringPayment = new MakeRecurringPayment();\n
+makeRecurringPayment.pan = \"9999999999999999\";\n
+makeRecurringPayment.password = \"1234\";\n
+makeRecurringPayment.blockchain = BlockChainType.LTC;\n
+makeRecurringPayment.amount = 13.88;\n
+makeRecurringPayment.currency = CurrencyType.BRL;\n
+makeRecurringPayment.period = PeriodType.M;\n
+makeRecurringPayment.vendorKey = \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\";\n
 
-             var makeRecurringPaymentReturn = apusPaymentsAPI.MakeRecurringPayment(makeRecurringPayment);\n
+var makeRecurringPaymentReturn = apusPaymentsAPI.MakeRecurringPayment(makeRecurringPayment);\n
 
-             Console.WriteLine(\"Make a Recurring Payment: \" + JsonConvert.SerializeObject(makeRecurringPaymentReturn));"
+Console.WriteLine(\"Make a Recurring Payment: \" + JsonConvert.SerializeObject(makeRecurringPaymentReturn));"
           }
         ]
       }
@@ -419,30 +441,33 @@
           },
           {
             "lang": "Node",
-            "source": "const ApusPaymentsAPI = require('./apuspayments');\n
+            "source": "const apusPaymentsAPI = require('./apuspayments');\n
 
-            var paymentParams = {\n
-                 \"vendorKey\": \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\",\n
-                 \"txId\": \"2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f\",\n
-                 \"timestamp\": new Date(\"2018-09-10T23:11:03-03:00\").getTime(),\n
-                 \"blockchain\": \"LTC\",\n
-                 \"currency\": \"BRL\",\n
-                 \"coinAmount\": \"0.04494037\",\n
-                 \"currencyAmount\": \"10.00\",\n
-                 \"buyer\": \"43de9565-943e-49ff-b808-82d54a87199f\",\n
-            };\n
-            
-            ApusPaymentsAPI.searchPayments(paymentParams, function (result) {\n
-                console.log(\"result: \", result);\n
-            });"
+var paymentParams = {\n
+   \"vendorKey\": \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\",\n
+   \"txId\": \"2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f\",\n
+   \"timestamp\": new Date(\"2018-09-10T23:11:03-03:00\").getTime(),\n
+   \"blockchain\": \"LTC\",\n
+   \"currency\": \"BRL\",\n
+   \"coinAmount\": \"0.04494037\",\n
+   \"currencyAmount\": \"10.00\",\n
+   \"buyer\": \"43de9565-943e-49ff-b808-82d54a87199f\",\n
+};\n
+
+apusPaymentsAPI.searchPayments(paymentParams, function (result) {\n
+  console.log(\"result: \", result);\n
+});"
           },
           {
             "lang": "PHP",
-            "source": "$platform = new Platform(Environment::sandbox());\n
+            "source": "$apusPaymentsAPI = new ApusPaymentsAPI(Environment::sandbox());\n
 
-            $searchPayment = new SearchPayment();\n
-            $searchPayment->setVendorKey(\"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\");\n
-            $searchPaymentReturn = $platform->searchPayment($searchPayment);"
+$searchPayment = new SearchPayment();\n
+$searchPayment->setVendorKey(\"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\");\n
+
+$searchPaymentResponse = $apusPaymentsAPI->searchPayment($searchPayment);\n
+
+print_r($searchPaymentResponse);"
           },
           {
             "lang": "Java",
@@ -452,19 +477,19 @@
             "lang": "C#",
             "source": "ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);\n
 
-            SearchPayment searchPayment = new SearchPayment();\n
-            searchPayment.vendorKey = \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\";\n
-            searchPayment.txId = \"\";\n
-            searchPayment.timestamp = \"\";\n
-            searchPayment.blockchain = BlockChainType.LTC;\n
-            searchPayment.currency = CurrencyType.BRL;\n
-            searchPayment.coinAmount = \"\";\n
-            searchPayment.currencyAmount = \"\";\n
-            searchPayment.buyer = \"\";\n
+SearchPayment searchPayment = new SearchPayment();\n
+searchPayment.vendorKey = \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\";\n
+searchPayment.txId = \"\";\n
+searchPayment.timestamp = \"\";\n
+searchPayment.blockchain = BlockChainType.LTC;\n
+searchPayment.currency = CurrencyType.BRL;\n
+searchPayment.coinAmount = \"\";\n
+searchPayment.currencyAmount = \"\";\n
+searchPayment.buyer = \"\";\n
 
-            var searchPaymentReturn = apusPaymentsAPI.SearchPayment(searchPayment);\n
+var searchPaymentReturn = apusPaymentsAPI.SearchPayment(searchPayment);\n
 
-            Console.WriteLine(\"Search Payment: \" + JsonConvert.SerializeObject(searchPaymentReturn));"
+Console.WriteLine(\"Search Payment: \" + JsonConvert.SerializeObject(searchPaymentReturn));"
           }
         ]
       }
@@ -510,19 +535,29 @@
           {
             "lang": "Node",
             "source": "const ApusPaymentsAPI = require('./apuspayments');\n
-              const cancelPayments = {\n
-                   \"txId\": \"2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f\",\n
-                   \"password\": \"1234\",\n
-                   \"vendorKey\": \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\"\n
-              };\n
+const cancelPayments = {\n
+   \"txId\": \"2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f\",\n
+   \"password\": \"1234\",\n
+   \"vendorKey\": \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\"\n
+};\n
 
-              ApusPaymentsAPI.cancelPayment(cancelPayments, function (result) {\n
-                  console.log(\"result: \", result);\n
-              });"
+ApusPaymentsAPI.cancelPayment(cancelPayments, function (result) {\n
+  console.log(\"result: \", result);\n
+});"
           },
           {
             "lang": "PHP",
-            "source": ""
+            "source": "$apusPaymentsAPI = new ApusPaymentsAPI(Environment::sandbox());\n
+
+$cancelPayment = new CancelPayment();\n
+
+$cancelPayment->setTxId("2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f");\n
+$cancelPayment->setPassword("1234");\n
+$cancelPayment->setVendorKey("5f5bdaed-f82b-4b82-b3f5-1d562633da5b");\n
+
+$cancelPaymentResponse = $apusPaymentsAPI->cancelPayment($cancelPayment);
+
+print_r($cancelPaymentResponse);"
           },
           {
             "lang": "Java",
@@ -532,14 +567,14 @@
             "lang": "C#",
             "source": "ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);\n
 
-            CancelPayment cancelPayment = new CancelPayment();\n
-            cancelPayment.txId = \"2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f\";\n
-            cancelPayment.password = \"1234\";\n
-            cancelPayment.vendorKey = \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\";\n
+CancelPayment cancelPayment = new CancelPayment();\n
+cancelPayment.txId = \"2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f\";\n
+cancelPayment.password = \"1234\";\n
+cancelPayment.vendorKey = \"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\";\n
 
-            var cancelPaymentReturn = apusPaymentsAPI.CancelPayment(cancelPayment);\n
+var cancelPaymentReturn = apusPaymentsAPI.CancelPayment(cancelPayment);\n
 
-            Console.WriteLine(\"Cancel a Payment: \" + JsonConvert.SerializeObject(cancelPaymentReturn));"
+Console.WriteLine(\"Cancel a Payment: \" + JsonConvert.SerializeObject(cancelPaymentReturn));"
           }
         ]
       }
