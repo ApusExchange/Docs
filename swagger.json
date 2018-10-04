@@ -551,9 +551,9 @@ ApusPaymentsAPI.cancelPayment(cancelPayments, function (result) {\n
 
 $cancelPayment = new CancelPayment();\n
 
-$cancelPayment->setTxId("2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f");\n
-$cancelPayment->setPassword("1234");\n
-$cancelPayment->setVendorKey("5f5bdaed-f82b-4b82-b3f5-1d562633da5b");\n
+$cancelPayment->setTxId(\"2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f\");\n
+$cancelPayment->setPassword(\"1234\");\n
+$cancelPayment->setVendorKey(\"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\");\n
 
 $cancelPaymentResponse = $apusPaymentsAPI->cancelPayment($cancelPayment);
 
