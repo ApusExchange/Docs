@@ -116,7 +116,16 @@ print_r($rechargeCryptoBalanceResponse);"
           },
           {
             "lang": "Java",
-            "source": ""
+            "source": "ApusPaymentAPI apusPaymentAPI = new ApusPaymentAPI(ApusPaymentAPI.Environment.SANDBOX);\n
+
+apusPaymentAPI.start(new RechargeCryptoBalance.Builder()\n
+.withAmount(10)\n
+.withBlockChain(BlockChain.Type.LTC)\n
+.withCurrency(Currency.Type.BRL)\n
+.withPan(\"9999999999999999\")\n
+.withPassWord(\"1234\")\n
+.withVendorKey(\"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\")\n
+.build());"
           },
           {
             "lang": "C#",
@@ -211,7 +220,16 @@ print_r($makePaymentResponse);"
           },
           {
             "lang": "Java",
-            "source": ""
+            "source": "ApusPaymentAPI apusPaymentAPI = new ApusPaymentAPI(ApusPaymentAPI.Environment.SANDBOX);\n
+
+apusPaymentAPI.start(new MakePayment.Builder()\n
+.withAmount(10)\n
+.withBlockChain(BlockChain.Type.LTC)\n
+.withCurrency(Currency.Type.BRL)\n
+.withPan(\"9999999999999999\")\n
+.withPassWord(\"1234\")\n
+.withVendorKey(\"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\")\n
+.build());"
           },
           {
             "lang": "C#",
@@ -312,7 +330,17 @@ print_r($makeRecurringPaymentResponse);"
           },
           {
             "lang": "Java",
-            "source": ""
+            "source": "ApusPaymentAPI apusPaymentAPI = new ApusPaymentAPI(ApusPaymentAPI.Environment.SANDBOX);\n
+
+apusPaymentAPI.start(new RecurringPayment.Builder()\n
+.withAmount(10)\n
+.withBlockChain(BlockChain.Type.LTC)\n
+.withCurrency(Currency.Type.BRL)\n
+.withPeriod(Period.M)\n
+.withPan(\"9999999999999999\")\n
+.withPassWord(\"1234\")\n
+.withVendorKey(\"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\")\n
+.build());"
           },
           {
             "lang": "C#",
@@ -471,7 +499,14 @@ print_r($searchPaymentResponse);"
           },
           {
             "lang": "Java",
-            "source": ""
+            "source": "ApusPaymentAPI apusPaymentAPI = new ApusPaymentAPI(ApusPaymentAPI.Environment.SANDBOX);\n
+
+apusPaymentAPI.start(new SearchPayment.Builder()\n
+.withBlockchain(BlockChain.Type.LTC)\n
+.withCurrency(Currency.Type.BRL)\n
+.withTxId(\"2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f\")\n
+.withVendorKey(\"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\")\n
+.build());"
           },
           {
             "lang": "C#",
@@ -561,7 +596,13 @@ print_r($cancelPaymentResponse);"
           },
           {
             "lang": "Java",
-            "source": ""
+            "source": "ApusPaymentAPI apusPaymentAPI = new ApusPaymentAPI(ApusPaymentAPI.Environment.SANDBOX);\n
+
+apusPaymentAPI.start(new CancelPayment.Builder()\n
+.withPassWord(\"1234\")\n
+.withVendorKey(\"5f5bdaed-f82b-4b82-b3f5-1d562633da5b\")\n
+.withTxId(\"2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f\")\n
+.build());"
           },
           {
             "lang": "C#",
